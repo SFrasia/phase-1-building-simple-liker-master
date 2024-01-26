@@ -4,9 +4,9 @@ const FULL_HEART = "♥";
 
 // Your JavaScript code goes here!
 const hearts = document.querySelectorAll(".like-glyph");
-for (let el = 0; el < hearts.length; el++) {
-  console.log(hearts[el].textContent);
-  hearts[el].addEventListener("click", (e) => {
+for (let i = 0; i < hearts.length; i++) {
+  console.log(hearts[i].textContent);
+  hearts[i].addEventListener("click", (e) => {
     e.target.textContent === FULL_HEART
       ? ((e.target.textContent = EMPTY_HEART),
         e.target.classList.remove("activated-heart"))
@@ -16,12 +16,12 @@ for (let el = 0; el < hearts.length; el++) {
   });
 }
 function respFromServer() {
-  // get response from server
+  // a response from the server
   document.getElementById("modal").classList.add("hidden");
   fetch(" http://localhost:3000/hearts")
     .then((res) => console.log(res))
     .catch(() => {
-      // Reveal error div if server is offline for 3 sec
+      
       document.getElementById("modal").classList.remove("hidden");
       setTimeout(
         () => document.getElementById("modal").classList.add("hidden"),
